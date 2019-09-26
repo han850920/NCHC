@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<script src=" {{ url_for('static', filename='scripts.js') }}"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<div class="card col-xl-3 col-lg-4 col-md-6 col-sm-8 col-xs-8" >
+    
+        <img class="card-img-top" src= "{{ url_for('static', filename = img_obj.get_img() ) }}">
+        <form  action='' method='POST'></form>
+            <div class="card-body">
+                    <p class="card-text">
+                            <input class='{{img_obj.name}}' type="hidden" name="id" value="{{img_obj.ID}}">
+                    </p>
+                    <p class="card-text">
+                            Road : {{ img_obj.road }}
+                            <input class='{{img_obj.name}}' type="hidden" name="road" value="{{img_obj.road}}">
+                    </p>
+                    <p class="card-text">
+                            Time : {{ img_obj.time }}
+                            <input class='{{img_obj.name}}' type="hidden" name="time" value="{{img_obj.time}}">
+                    </p>
+                    <p class="card-text">
+                            Name : {{ img_obj.name }}
+                            <input class='{{img_obj.name}}' type="hidden" name="name" value="{{img_obj.name}}">
+                    </p>
+                    <p class="card-text">
+                            <input class='{{img_obj.name}}' type="hidden" name="path" value="{{img_obj.path}}">
+                    </p>      
+            </div>
+        <div class="card-footer">
+                {% if submit_page == True %}
+                        {% if  img_obj.state == False %}
+                                <button id ="{{img_obj.name}}" class="btn btn-primary" type='button' name='button' onclick="clickbtn('{{img_obj.name}}')">Submit</button>
+                        {% else %}
+                                <button id ="{{img_obj.name}}" class="btn btn-secondary disabled" type='button' name='button'>Submit</button>
+                        {% endif %}
+                {% endif%}
+        </div>
+    </form>
+</div>
+

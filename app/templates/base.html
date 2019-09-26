@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>防汛小幫手</title>   
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src=" {{ url_for('static', filename='scripts.js') }}"></script>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{url_for('index')}}">NCHC</a>
+              <div class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <div class="nav-item">
+                    <a class="nav-link" href="/" >Submit<span class="sr-only">(current)</span></a>
+                  </div>
+                  <div class="nav-item">
+                    <a class="nav-link " href="/records"  >Records</a>
+                  </div>
+              </div>
+
+        </nav>
+        
+        {% block content %}{% endblock %}
+    </body>
+</html>
