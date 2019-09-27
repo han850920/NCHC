@@ -32,9 +32,9 @@ def index():
             table_name = get_latest_table_name(cursor)
             cursor.execute('UPDATE {} SET state = 1 WHERE name=?'.format(table_name),(img_obj['name'],))
             conn.commit()
-            print("call line bot")
-            # cmd = "python script/post_linebot_arg.py \'" + img_obj['id'] + "\' \'" +img_obj['road'] + "\' \'" + img_obj['time'] + "\' \'" + img_obj['name'] + "\' \'" + img_obj['path'] + "\'"
-            # os.system(cmd)
+            # print("call line bot")
+            cmd = "python script/post_linebot_arg.py \'" + img_obj['id'] + "\' \'" +img_obj['road'] + "\' \'" + img_obj['time'] + "\' \'" + img_obj['name'] + "\' \'" + img_obj['path'] + "\'"
+            os.system(cmd)
 
             return redirect(url_for('index'))
         else:
