@@ -1,24 +1,33 @@
+body{
+    text-align:center;
+    font-size:14px;
+}
+
 .badge{
     margin: 1rem auto !important;
 }
 .card{
     padding:0rem !important;
-    /* height:25rem !important; */
+    height:300px !important;
+    width:240px !important;
+    text-align:left; 
+    vertical-align: top;
 }
 .card-body{
     padding-top: 0rem !important;
     padding-bottom: 0rem !important;
 
-    height:30% !important; 
+    height:25% !important; 
 }
 .card-footer {
-    padding: .5rem !important;
+    padding: 0rem !important;
     text-align: center !important;
     background-color:rgba(0,0,0,0) !important;
     border-top: 0px solid rgba(0,0,0,0) !important;
+    height:20% !important; 
 }
 .card-img-top{
-    margin: .3rem auto;
+    margin: .3rem .3rem;
     height: 50% !important;
     width: 95% !important;
 }
@@ -32,4 +41,8 @@ p.card-text{
 }
 .nav-item{
     display:inline !important;
+}
+.area{
+    margin :auto !important;
+    text-align:center !important;
 }

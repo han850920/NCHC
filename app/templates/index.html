@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container">
+    <!-- <div class="container"> -->
         {% if data_list|length>0 %}
             <span  class="badge badge-success col-12"><h2>Please choose the image and submit.</h2></span>
-            <div class="row">
+            <!-- <div class="row"> -->
                 {% for img_obj in data_list %}
                     {% include 'img_object_.html' %}
                 {% endfor %}
@@ -12,7 +12,7 @@
         {% else %}  
             <span  class="badge badge-danger col-12" style="margin: 3rem auto"><h2>No file in the database</h2></span>
         {% endif %}
-    </div>
+    <!-- </div> -->
         
        
     

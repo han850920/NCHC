@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        {% if data_list|length>0 %}
-        <span  class="badge badge-success col-12"><h2>Submit history at {{data_list[0].time}}</h2></span>
-        <div class="row">
+
+            {% if data_list|length>0 %}
+                <span  class="badge badge-success col-12"><h2>Submit history at {{data_list[0].time}}</h2></span>
+            
                 {% for img_obj in data_list %}
                     {% include 'img_object_.html' %}
                 {% endfor %}
-        </div>
-        {% else %}
-            <span  class="badge badge-danger col-12" style="margin: 3rem auto"><h2>No submit record</h2></span>
-        {% endif %}
-    </div>
+
+            {% else %}
+                <span  class="badge badge-danger col-12" style="margin: 3rem auto"><h2>No submit record</h2></span>
+            {% endif %}
+
 {% endblock %}

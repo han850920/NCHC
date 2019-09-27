@@ -33,9 +33,9 @@ def index():
             cursor.execute('UPDATE {} SET state = 1 WHERE name=?'.format(table_name),(img_obj['name'],))
             conn.commit()
             # print("call line bot")
-            cmd = "python script/post_linebot_arg.py \'" + img_obj['id'] + "\' \'" +img_obj['road'] + "\' \'" + img_obj['time'] + "\' \'" + img_obj['name'] + "\' \'" + img_obj['path'] + "\'"
+            cmd = "python script/post_linebot_arg.py \'" + img_obj['ID'] + "\' \'" +img_obj['road'] + "\' \'" + img_obj['time'] + "\' \'" + img_obj['name'] + "\' \'" + img_obj['path'] + "\'"
             os.system(cmd)
-
+            # print(cmd)
             return redirect(url_for('index'))
         else:
             print("refresh")
