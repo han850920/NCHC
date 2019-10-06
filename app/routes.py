@@ -2,10 +2,12 @@ from app import app
 from app.models import ImgObject
 from flask import render_template, url_for, json,request,redirect
 from jinja2 import Template
+from .util import Reporter
 import os
 import glob
 import sqlite3
 import time
+
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 
@@ -76,9 +78,24 @@ def index():
 
 @app.route('/records',methods=['GET', 'POST'])
 def records():
+
+    
     data_list=[]
     conn = sqlite3.connect('NCHC-submit.db')
     cursor = conn.cursor()
+    if request.method =='POST':
+        list_of_flags = glob.glob('/tmp/*-FLAG.json')
+        if list_of_flags!=[]:
+            latest_flag = max(list_of_flags, key=os.path.getctime)
+        with open(latest_flag, 'r') as f:
+            data = json.load(f)
+        reporter = Reporter()
+        report_path = reporter.make_report(data)
+
+        
+
+            
+
     table_name = get_latest_table_name(cursor)
     row = cursor.execute("SELECT * FROM {} WHERE state = 1".format(table_name))
     for r in row:

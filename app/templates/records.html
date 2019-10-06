@@ -2,14 +2,20 @@
 {% block content %}
 
             {% if data_list|length>0 %}
-                <span  class="badge badge-success col-12"><h2>Submit history at {{data_list[0].time}}</h2></span>
-            
+                <span  class="badge badge-success col-12">
+                    <h2>Submit history at {{data_list[0].time}}</h2>
+                    <button id ="report" class="btn btn-warning" type='button' name='button' onclick="report('{{data_list[0].time}}')">Give Me The Report</button>
+                </span>
+
                 {% for img_obj in data_list %}
                     {% include 'img_object_.html' %}
                 {% endfor %}
 
             {% else %}
-                <span  class="badge badge-danger col-12" style="margin: 3rem auto"><h2>No submit record</h2></span>
+                <span  class="badge badge-danger col-12" style="margin: 3rem auto">
+                    <h2>No submit record</h2>
+                    <button id ="report" class="btn btn-secondary disabled" type='button' name='button'>Submit</button>
+                </span>
             {% endif %}
-
+            
 {% endblock %}

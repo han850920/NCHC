@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     var current = window.location.href;
     $('.nav-item').each(function(){
@@ -42,4 +43,21 @@ function clickbtn(img_name){
     
     btn.classList.remove("btn-primary");
     btn.className += " btn-secondary disabled";
+}
+
+function report(report_name){
+
+    $.ajax({
+        type:"POST",
+        url: "/records",
+        success: function(response) {
+            console.log("Report has been download")
+        },
+        error: function(xhr) {
+            //Do Something to handle error
+            console.log("error");
+        }
+        }
+    );
+
 }
