@@ -14,7 +14,7 @@
             {% else %}
                 <span  class="badge badge-danger col-12" style="margin: 3rem auto">
                     <h2>No submit record</h2>
-                    <button id ="report" class="btn btn-secondary disabled" type='button' name='button'>Submit</button>
+                    <button id ="report" class="btn btn-warning" type='button' name='button' onclick="report('{{data_list[0].time}}')">Give Me The Report</button>
                 </span>
             {% endif %}
             
