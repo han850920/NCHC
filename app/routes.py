@@ -89,9 +89,9 @@ def records():
             latest_flag = max(list_of_flags, key=os.path.getctime)
         with open(latest_flag, 'r') as f:
             data = json.load(f)
-        reporter = Reporter()
-        report_path = reporter.make_report(data)
-
+        reporter = Reporter(1)# 0 => 小圖置下 ; 1 ＝> 小圖置右
+        report_path = reporter.make_report(data) 
+        print("save report")
         
 
             

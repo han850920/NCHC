@@ -12,6 +12,7 @@
 #import argparse
 import requests
 import sys
+from .util import Reporter
 
 def post_Linebot(tvid, road, realtime, im_name, im_full_name):
     # upload image to temp
