@@ -10,4 +10,3 @@ if __name__=='__main__':
     # 若要改俵儲存位置 請改Reporter中的make_report 在最後return前的橻存路徑
     RP = Reporter(0)
     RP.make_report()
-    print("hello")
