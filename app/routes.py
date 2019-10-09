@@ -2,7 +2,7 @@ from app import app
 from app.models import ImgObject
 from flask import render_template, url_for, json,request,redirect
 from jinja2 import Template
-from .util import Reporter
+from .utils import Reporter
 import os
 import glob
 import sqlite3
@@ -84,13 +84,9 @@ def records():
     conn = sqlite3.connect('NCHC-submit.db')
     cursor = conn.cursor()
     if request.method =='POST':
-        list_of_flags = glob.glob('/tmp/*-FLAG.json')
-        if list_of_flags!=[]:
-            latest_flag = max(list_of_flags, key=os.path.getctime)
-        with open(latest_flag, 'r') as f:
-            data = json.load(f)
-        reporter = Reporter(1)# 0 => 小圖置下 ; 1 ＝> 小圖置右
-        report_path = reporter.make_report(data) 
+        
+        reporter = Reporter(1) # 0 => 小圖置下 ; 1 ＝> 小圖置右
+        report_path = reporter.make_report()
         print("save report")
         
 

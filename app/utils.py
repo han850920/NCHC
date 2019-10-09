@@ -7,6 +7,7 @@ import os
 import json
 import math
 import time 
+import glob
 
 class Reporter():
     def __init__(self, down_or_right):
@@ -55,8 +56,16 @@ class Reporter():
         
         return image
 
-    def make_report(self, data):
+    def make_report(self):
+        #get the latest Flag 
+        list_of_flags = glob.glob('/tmp/*-FLAG.json')
+        if list_of_flags!=[]:
+            latest_flag = max(list_of_flags, key=os.path.getctime)
+        with open(latest_flag, 'r') as f:
+            data = json.load(f)
+
         report_name = os.path.splitext(data[0]['mseg']['im_name'].split('_')[-1])[0]
+
         # screenshot of web
         web_img = self.get_Web(self.url,report_name)
 
